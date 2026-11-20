@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Pure chat mode",
+    "description": "A conversation-only agent preset: no file, shell or web tools, a persona you can rewrite from the sidebar, and a one-click hand-off into a new standard session."
+  }
+}

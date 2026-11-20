@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" role="img" aria-label="Pure chat mode">
+  <g fill="none" stroke="#6E7A91" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9.5 7.5h17a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-13l-5 4.5V23.5H9.5a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4Z"/>
+  </g>
+  <g fill="#4C7DF0">
+    <circle cx="12.5" cy="15.5" r="1.7"/>
+    <circle cx="18" cy="15.5" r="1.7"/>
+    <circle cx="23.5" cy="15.5" r="1.7"/>
+  </g>
+</svg>

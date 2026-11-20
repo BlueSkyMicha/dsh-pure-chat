@@ -1,0 +1,38 @@
+# dsh-pure-chat bundle patch.
+#
+# One Host plugin (pure-chat) owns the persona/temperature state, the HTTP
+# routes the sidebar panel talks to, and the per-agent prompt section; one
+# preset definition (chat) publishes the tool-less "纯聊天" mode itself.
+#
+# The preset carries no tool rows at all. Its system prompt comes from the
+# Host plugin's scoped, complete prompt section, so the right-sidebar panel can
+# change the persona without re-composing the preset. Compaction stays on the
+# stock DSH rows; billion-context gates its own compaction policy per preset id
+# and falls back to these rows for ids it does not list.
+- insert:
+    - id: pure-chat
+      name: dsh-pure-chat
+      config:
+        persona: ''
+        temperature: 1
+
+    - id: preset-chat
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: chat
+        name: 纯聊天
+        description: 只对话、不主动用工具；右侧栏可写人设、调温度
+        order: 5
+        plugins:
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: compaction
+            name: 'cordis:group'
+            group: true
+            isolate:
+              compaction: true
+            config:
+              - id: compaction-basic
+                name: '@deepseek-ai/dsh-compaction-basic'
+              - id: command-compact
+                name: '@deepseek-ai/dsh-command-compact'
