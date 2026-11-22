@@ -1,6 +1,6 @@
 {
   "name": "dsh-pure-chat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Pure chat mode for DeepSeek Harness: a tool-less conversation preset with a sidebar panel for the persona, temperature, and capability switches, plus one-click hand-off to a standard session.",
   "keywords": [

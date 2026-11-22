@@ -21,6 +21,18 @@ Standard DSH sessions carry a full toolbelt (files, shell, web, subagents…) an
 - **One-click hand-off** — puts the whole conversation into a **new standard-mode session** as an editable draft, using the shipped `/api/session.markdown` export route.
 - **Bilingual UI** — English and Chinese strings ship with the panel.
 
+### Limits of `read_attachment`
+
+| Item | Cap |
+| --- | --- |
+| Text returned per file | 20,000 characters (the rest is replaced by `(内容已截断)`) |
+| Files per call | 5 (both `@` mentions and dropped attachments) |
+| Bytes read from an `@` file | 1 MB (a larger file is read from the start only, plus `(文件很大，只读了开头 1 MB)`) |
+| Bytes streamed from an attachment | 8 MiB |
+| Content type | UTF-8 text; anything containing a NUL byte is reported as binary and not decoded |
+
+Paths are matched as `@path` or `@"path with spaces"`, relative to the session working directory. Without the quotes, a path containing a space is split at the space.
+
 ## Install
 
 Requires DeepSeek Harness with the Web GUI. Pick whichever path you like.
